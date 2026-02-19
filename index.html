@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Score Counter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="scoreboard-container">
+      <div class="player-names">
+        <div class="player-wrapper">
+          <div class="name-row">
+            <button class="toggle-btn" id="p1-btn">&gt;</button>
+            <span class="player" id="p1-name" contenteditable="true"
+              >Player 1</span
+            >
+          </div>
+          <ul class="player-list" id="p1-list">
+            <li data-target="p1-name">Sir</li>
+            <li data-target="p1-name">Rifat Bhai</li>
+            <li data-target="p1-name">Apon</li>
+            <li data-target="p1-name">Dada</li>
+          </ul>
+        </div>
+        <div class="vs">VS</div>
+        <div class="player-wrapper">
+          <div class="name-row">
+            <span class="player" id="p2-name" contenteditable="true"
+              >Player 2</span
+            >
+            <button class="toggle-btn" id="p2-btn">&lt;</button>
+          </div>
+          <ul class="player-list" id="p2-list" style="right: 0; left: auto">
+            <li data-target="p2-name">Sir</li>
+            <li data-target="p2-name">Rifat Bhai</li>
+            <li data-target="p2-name">Apon</li>
+            <li data-target="p2-name">Dada</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="score-display">
+        <div class="team-group">
+          <div class="btn-group">
+            <button class="btn plus" id="team1-plus">+</button>
+            <button class="btn minus" id="team1-minus">-</button>
+          </div>
+          <span class="score" id="team1-score">0</span>
+        </div>
+
+        <span class="score-separator">-</span>
+
+        <div class="team-group">
+          <span class="score" id="team2-score">0</span>
+          <div class="btn-group">
+            <button class="btn plus" id="team2-plus">+</button>
+            <button class="btn minus" id="team2-minus">-</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="score-display small-score-display">
+        <div class="team-group">
+          <div class="btn-group">
+            <button class="btn plus small-btn" id="small-team1-plus">+</button>
+            <button class="btn minus small-btn" id="small-team1-minus">
+              -
+            </button>
+          </div>
+          <span class="score small-score" id="small-team1-score">0</span>
+        </div>
+
+        <span class="score-separator">-</span>
+
+        <div class="team-group">
+          <span class="score small-score" id="small-team2-score">0</span>
+          <div class="btn-group">
+            <button class="btn plus small-btn" id="small-team2-plus">+</button>
+            <button class="btn minus small-btn" id="small-team2-minus">
+              -
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
