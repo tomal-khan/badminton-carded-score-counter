@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Score Counter</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   </head>
   <body>
     <div class="scoreboard-container">
@@ -83,10 +84,11 @@
           </div>
         </div>
       </div>
-
-      <div class="controls"></div>
     </div>
 
+    <div class="controls">
+      <button id="download-btn" class="btn">Download Score</button>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

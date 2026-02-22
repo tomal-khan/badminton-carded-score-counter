@@ -16,7 +16,7 @@ const smallTeam1MinusBtn = document.getElementById('small-team1-minus');
 const smallTeam2PlusBtn = document.getElementById('small-team2-plus');
 const smallTeam2MinusBtn = document.getElementById('small-team2-minus');
 
-const resetButton = document.getElementById('reset-button');
+const downloadBtn = document.getElementById('download-btn');
 
 // --- State ---
 let team1Score = 0;
@@ -36,22 +36,13 @@ function updateScoreDisplay() {
     smallTeam2ScoreEl.textContent = smallTeam2Score;
 }
 
-/**
- * Resets the game state and updates the display.
- */
-function resetGame() {
-    team1Score = 0;
-    team2Score = 0;
-    smallTeam1Score = 0;
-    smallTeam2Score = 0;
-    updateScoreDisplay();
-}
-
 // --- Event Listeners ---
 
 // Team 1 Controls
 team1PlusBtn.addEventListener('click', () => {
     team1Score++;
+    smallTeam1Score = 0;
+    smallTeam2Score = 0;
     updateScoreDisplay();
 });
 
@@ -65,6 +56,8 @@ team1MinusBtn.addEventListener('click', () => {
 // Team 2 Controls
 team2PlusBtn.addEventListener('click', () => {
     team2Score++;
+    smallTeam1Score = 0;
+    smallTeam2Score = 0;
     updateScoreDisplay();
 });
 
@@ -111,9 +104,6 @@ smallTeam2MinusBtn.addEventListener('click', () => {
     }
 });
 
-// Game Controls
-
-
 // --- Initial Setup ---
 // Set the initial scores on page load
 updateScoreDisplay();
@@ -149,5 +139,16 @@ document.querySelectorAll('.player-list li').forEach(item => {
         // Reset button rotation
         const btn = e.target.parentElement.id === 'p1-list' ? p1Btn : p2Btn;
         btn.style.transform = 'rotate(0deg)';
+    });
+});
+
+// --- Download Logic ---
+downloadBtn.addEventListener('click', () => {
+    const scoreboard = document.querySelector('.scoreboard-container');
+    html2canvas(scoreboard).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'badminton-score.png';
+        link.href = canvas.toDataURL();
+        link.click();
     });
 });
